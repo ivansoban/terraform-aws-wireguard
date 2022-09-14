@@ -21,7 +21,9 @@ yum_repos:
 runcmd:
   - echo ECS_CLUSTER=${cluster_name} > /etc/ecs/ecs.config
   # install wireguard module
-  - yum install wireguard-dkms wireguard-tools -y
+  - yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  - curl -o /etc/yum.repos.d/jdoss-wireguard-epel-7.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
+  - yum install wireguard-dkms wireguard-tools
 
   # enable module
   - modprobe wireguard
