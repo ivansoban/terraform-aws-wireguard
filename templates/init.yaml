@@ -21,7 +21,7 @@ yum_repos:
 runcmd:
   - echo ECS_CLUSTER=${cluster_name} > /etc/ecs/ecs.config
   # install wireguard module
-  - yum install wireguard-dkms wireguard-tools -y
+  - yum install wireguard-dkms wireguard-tools linux-headers-$(uname -r) -y
 
   # enable module
   - modprobe wireguard
